@@ -12,7 +12,7 @@
 <h3><B>REGISTRATION</B></h3><br>
 <div class="container h-50 mt-5">
 	<form method="POST" enctype="multipart/form-data" autocomplete="on">
-		
+		{%  csrf_token %}
 
 		<div class="box" style="position: absolute; top:0%;">
 			<label for="firstName" class="fl fontLabel"> First Name: </label>
@@ -67,10 +67,9 @@
 			<input type="radio" name="Gender" value="Female" required> Female
 
 		</div>
-
-		<div class="box terms" style="position: absolute; top:120%;">
-			<label for="formFile" class="form-label">Choose your profile picture</label>
-			<input class="form-control" type="file" id="formFile" name="image">
+        <div class="box terms" style="position: absolute; top:120%;">
+			<!-- <label for="formFile" class="form-label">Choose your profile picture</label> -->
+			<!-- <input class="form-control" type="file" id="formFile" name="image"> -->
 			<input type="checkbox" name="Terms" required> &nbsp; I accept the terms and conditions
 			<input type="Submit" name="Submit" class="submit" value="SUBMIT" href="{%  url 'login' % }"
 				style="width: 9.5cm;">

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+{% endblock styles %}
+{% block content %}
+</li>
+<section class="bg-light">
+    {% csrf_token %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 mb-4 mb-sm-5">
+                <div class="card card-style1 border-0">
+                    <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+                        <div class="row align-items-center">
+                            
+                            <div class="col-lg-6 mb-4 mb-lg-0">
+                                <img src="{{request.user.userdetails.images.url}}" height="400cm" width="400cm" alt=" ">
+                            </div>
+                           
+
+                            <div class="col-lg-6 px-xl-10">
+                               
+                                <div class="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
+                                    <h3 class="h2 text-white mb-0">{{request.user.first_name}}
+                                        {{request.user.last_name}}</h3>
+                                    <span class="text-primary">Customer</span>
+
+
+                                </div>
+                                
+                                <ul class="list-unstyled mb-1-9">
+                                    <li class="mb-2 mb-xl-3 display-28"><span
+                                            class="display-26 text-secondary me-2 font-weight-600">First
+                                            Name:</span> {{request.user.first_name}}</li>
+                                    <li class="mb-2 mb-xl-3 display-28"><span
+                                            class="display-26 text-secondary me-2 font-weight-600">Second
+                                            Name:</span> {{request.user.last_name}}</li>
+                                    <li class="mb-2 mb-xl-3 display-28"><span
+                                            class="display-26 text-secondary me-2 font-weight-600">Gender:</span>{{request.user.userdetails.gender}}
+                                    </li>
+                                    <li class="mb-2 mb-xl-3 display-28"><span
+                                            class="display-26 text-secondary me-2 font-weight-600">Email
+                                            ID:</span>{{request.user.userdetails.emailid}}</li>
+                                    <li class="display-28"><span
+                                            class="display-26 text-secondary me-2 font-weight-600">Phone
+                                            No:</span> {{request.user.userdetails.phoneno}}</li>
+                                </ul>
+                                <ul class="social-icon-style1 list-unstyled mb-0 ps-0">
+                                    <li><a href="#!"><i class="ti-twitter-alt"></i></a></li>
+                                    <li><a href="#!"><i class="ti-facebook"></i></a></li>
+                                    <li><a href="#!"><i class="ti-pinterest"></i></a></li>
+                                    <li><a href="#!"><i class="ti-instagram"></i></a></li>
+                                </ul>
+                           
+                            </div>
+                            <a href="{% url 'updateform' id=user.id  %}">update</a>
+                        </div>
+                        <div>
+                            <a href="{%  url 'delete' id=user.id %}"> delete task
+                                <i class="fa-solid fa-trash-can float-end m-1 text-danger;"></i>
+                              </a>
+                        </div>
+                    <!-- </div>
+                    <a href="table">update</a>
+                </div> -->
+                    </div>
+                </div>
+            </div>
+            {% endblock content%}

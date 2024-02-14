@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from kfc import settings
 
 urlpatterns = [
-    path(' ',include('menu.urls')),
+    path('',include('menu.urls')),
     path('admin/', admin.site.urls),
     
 ]

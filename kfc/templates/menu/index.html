@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block styles %}
+{% block content %}
 
 <div class="col-lg-6">
     <H4> LOGIN </H4>
-    <form action="" method="post">
-        <div class="card2 card border-0 px-4 py-5"><
+    <form action="{% url 'signin' %}" method="post">
+        {% csrf_token %}
+        <div class="card2 card border-0 px-4 py-5">
             <div class="line">{{msg}}</div>
                         <div class="row px-3">
                             <label class="mb-1">
@@ -20,12 +21,14 @@
                             </label>
                             <input type="password" name="password" placeholder="Enter password">
                         </div>
-                        <div class="row px-3 mb-4">
-                           
-                            <a href="#" class="ml-auto mb-0 text-sm">Forgot Password?</a>
-                        </div>
+                        
                         <div class="row mb-3 px-3">
-                            <input type="submit" class="btn btn-primary" value="Login" href="{% url 'user' %}">
+                            <input type="submit" class="btn btn-primary" value="Login" >
+                        </div>
+                        <div class="row mb-4 px-3">
+
+                            <small class="font-weight-bold">Don't have an account? <a class="text-danger"
+                                    href="{% url 'registration' %}">Register</a></small>
                         </div>
                         
 
